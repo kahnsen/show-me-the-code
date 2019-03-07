@@ -45,7 +45,7 @@ def addToDB():
     with open('coupon.txt', 'r') as file:
         for line in file.readlines():
             c_id = re.findall(r'.*/.*:(.*)\'', str(parse_base64(line)))
-            # print(c_id)
+            print(c_id)
             session.add(Coupon(id=c_id.pop(), code=line))
         session.commit()
         session.close()
